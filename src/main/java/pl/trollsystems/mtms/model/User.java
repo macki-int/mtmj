@@ -22,6 +22,8 @@ public class User {
     @NotNull
     @Value("${some.key:true}")
     private Boolean active;
+    @NotNull
+    private RoleEnum roleEnum;
 
 
     public Long getId() {
@@ -78,5 +80,13 @@ public class User {
 
     public void setActive(Boolean active) {
         this.active = active;
+    }
+
+    public RoleEnum getRoleEnum() {
+        return roleEnum;
+    }
+
+    public void setRoleEnum(RoleEnum roleEnum) {
+        this.roleEnum = roleEnum;
     }
 }
