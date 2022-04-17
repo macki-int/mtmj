@@ -15,6 +15,9 @@ public class RawReading {
     private LocalDateTime localDateTime;
     @NotNull
     private String reading;
+    @NotNull
+    private String fileName;
+
 
     public Long getId() {
         return Id;
@@ -38,5 +41,13 @@ public class RawReading {
 
     public void setReading(String reading) {
         this.reading = reading;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 }
