@@ -13,16 +13,11 @@ public class Reading {
     private Long id;
     @NotNull
     private LocalDateTime dataTimeReading;
-    @NotNull
-    private Float pD;
-    @NotNull
-    private Float pBaro;
-    @NotNull
-    private Float tBaro;
-    @NotNull
-    private Float p1;
-    @NotNull
-    private Float tOb1;
+    private Double pD;
+    private Double pBaro;
+    private Double tBaro;
+    private Double p1;
+    private Double tOb1;
     @Column(columnDefinition = "text")
     private String Description;
     @ManyToOne
@@ -46,43 +41,43 @@ public class Reading {
         this.dataTimeReading = dataTimeReading;
     }
 
-    public Float getpD() {
+    public Double getpD() {
         return pD;
     }
 
-    public void setpD(Float pD) {
+    public void setpD(Double pD) {
         this.pD = pD;
     }
 
-    public Float getpBaro() {
+    public Double getpBaro() {
         return pBaro;
     }
 
-    public void setpBaro(Float pBaro) {
+    public void setpBaro(Double pBaro) {
         this.pBaro = pBaro;
     }
 
-    public Float gettBaro() {
+    public Double gettBaro() {
         return tBaro;
     }
 
-    public void settBaro(Float tBaro) {
+    public void settBaro(Double tBaro) {
         this.tBaro = tBaro;
     }
 
-    public Float getP1() {
+    public Double getP1() {
         return p1;
     }
 
-    public void setP1(Float p1) {
+    public void setP1(Double p1) {
         this.p1 = p1;
     }
 
-    public Float gettOb1() {
+    public Double gettOb1() {
         return tOb1;
     }
 
-    public void settOb1(Float tOb1) {
+    public void settOb1(Double tOb1) {
         this.tOb1 = tOb1;
     }
 
