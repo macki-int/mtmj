@@ -24,6 +24,9 @@ public class Reading {
     @NotNull
     private Float tOb1;
     private String Description;
+    @ManyToOne
+    @JoinColumn(name = "transmitter_parameter_reading_id", nullable = false)
+    private TransmitterParameterReading transmitterParameterReading;
 
 
     public Long getId() {
@@ -88,5 +91,13 @@ public class Reading {
 
     public void setDescription(String description) {
         Description = description;
+    }
+
+    public TransmitterParameterReading getTransmitterParameterReading() {
+        return transmitterParameterReading;
+    }
+
+    public void setTransmitterParameterReading(TransmitterParameterReading transmitterParameterReading) {
+        this.transmitterParameterReading = transmitterParameterReading;
     }
 }
