@@ -23,6 +23,7 @@ public class Reading {
     private Float p1;
     @NotNull
     private Float tOb1;
+    @Column(columnDefinition = "text")
     private String Description;
     @ManyToOne
     @JoinColumn(name = "transmitter_parameter_reading_id", nullable = false)
