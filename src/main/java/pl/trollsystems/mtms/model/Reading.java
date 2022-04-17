@@ -13,7 +13,6 @@ public class Reading {
     private Long id;
     @NotNull
     private LocalDateTime dataTimeReading;
-    private String fileName;
     @NotNull
     private Float pD;
     @NotNull
@@ -24,11 +23,6 @@ public class Reading {
     private Float p1;
     @NotNull
     private Float tOb1;
-    private String serialNumber;
-    private String signalLevel;
-    private String batteryCapacity;
-    private String humidity;
-    private String batteryVoltage;
     private String Description;
 
 
@@ -46,14 +40,6 @@ public class Reading {
 
     public void setDataTimeReading(LocalDateTime dataTimeReading) {
         this.dataTimeReading = dataTimeReading;
-    }
-
-    public String getFileName() {
-        return fileName;
-    }
-
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
     }
 
     public Float getpD() {
@@ -94,46 +80,6 @@ public class Reading {
 
     public void settOb1(Float tOb1) {
         this.tOb1 = tOb1;
-    }
-
-    public String getSerialNumber() {
-        return serialNumber;
-    }
-
-    public void setSerialNumber(String serialNumber) {
-        this.serialNumber = serialNumber;
-    }
-
-    public String getSignalLevel() {
-        return signalLevel;
-    }
-
-    public void setSignalLevel(String signalLevel) {
-        this.signalLevel = signalLevel;
-    }
-
-    public String getBatteryCapacity() {
-        return batteryCapacity;
-    }
-
-    public void setBatteryCapacity(String batteryCapacity) {
-        this.batteryCapacity = batteryCapacity;
-    }
-
-    public String getHumidity() {
-        return humidity;
-    }
-
-    public void setHumidity(String humidity) {
-        this.humidity = humidity;
-    }
-
-    public String getBatteryVoltage() {
-        return batteryVoltage;
-    }
-
-    public void setBatteryVoltage(String batteryVoltage) {
-        this.batteryVoltage = batteryVoltage;
     }
 
     public String getDescription() {
