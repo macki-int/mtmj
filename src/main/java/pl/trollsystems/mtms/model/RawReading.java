@@ -14,6 +14,7 @@ public class RawReading {
     @NotNull
     private LocalDateTime localDateTime;
     @NotNull
+    @Column(columnDefinition = "text")
     private String reading;
     @NotNull
     private String fileName;
