@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 public class RawReading {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
     @NotNull
     private LocalDateTime localDateTime;
     @NotNull
@@ -21,11 +21,11 @@ public class RawReading {
 
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public LocalDateTime getLocalDateTime() {
