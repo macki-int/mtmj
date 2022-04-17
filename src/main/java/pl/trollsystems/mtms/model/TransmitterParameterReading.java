@@ -6,8 +6,8 @@ import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name="transmiter_parameter_readings")
-public class TransmiterParameterReading {
+@Table(name="transmitter_parameter_readings")
+public class TransmitterParameterReading {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
