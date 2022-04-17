@@ -1,14 +1,12 @@
 package pl.trollsystems.mtms.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "readings")
 public class Reading {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
