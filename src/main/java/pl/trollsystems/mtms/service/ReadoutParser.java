@@ -1,12 +1,13 @@
 package pl.trollsystems.mtms.service;
 
 
+import pl.trollsystems.mtms.model.SplitReadout;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class ReadoutParser {
-
     public static void main(String[] args) {
 //        https://mkyong.com/java/java-how-to-split-a-string/
 //         String REGEX_MAIN = "#F|#T|#M|#I|#G|#E|#X";
@@ -16,25 +17,45 @@ public class ReadoutParser {
 //        Pattern pattern = Pattern.compile(REGEX_MAIN);
 //        String[] result = pattern.split(s);
         String[] result = s.split("(?=#F)|(?=#T)|(?=#M)|(?=#I)|(?=#G)|(?=#E)|(?=#X)");
-        for (String str : result) {
-            System.out.println(str);
-        }
-        System.out.println("---------------------------------");
+//        for (String str : result) {
+//            System.out.println(str);
+//        }
+//        System.out.println("---------------------------------");
         parseData(result);
     }
 
     private static void parseData(String[] result) {
-        //Map
+
         List<String[]> listResult = new ArrayList<>();
 
         for (int i = 0; i < result.length; i++) {
-            String[] resultParse= result[i].split("(?=/s=)|(?=/p=)|(?=/m=)|(?=/b=)|(?=/c=)|(?=/n=)|(?=/e=)|(?=/f=)|(?=/v=)|(?=/a=)|(?=/h=)");
+            String[] resultParse = result[i].split("(?=/s=)|(?=/p=)|(?=/m=)|(?=/b=)|(?=/c=)|(?=/n=)|(?=/e=)|(?=/f=)|(?=/v=)|(?=/a=)|(?=/h=)");
             listResult.add(resultParse);
         }
-
-        for (String[] s:listResult  ){
+//    private SplitReadout splitReadout;
+        for (String[] s : listResult) {
             System.out.println(Arrays.toString(s));
+            storeReadout(s);
         }
     }
 
+    private  void storeReadout(String[] s) {
+        switch (s[0]) {
+            case "#T":
+                splitReadout.set_Ts(s[1]);
+                splitReadout.set_Tp(s[2]);
+                splitReadout.set_Tm(s[3]);
+                break;
+            case "#M":
+                break;
+            case "#I":
+                break;
+            case "#G":
+                break;
+            case "#X":
+                break;
+            default:
+        }
+        System.out.println(splitReadout);
+    }
 }
