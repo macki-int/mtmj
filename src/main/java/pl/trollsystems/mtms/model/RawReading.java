@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;
 
+
 @Entity
 @Table(name = "raw_readings")
 public class RawReading {
