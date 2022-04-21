@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ReadoutParser {
-    public static void main(String[] args) {
+    public void parseByMainFactor() {
 //        https://mkyong.com/java/java-how-to-split-a-string/
 //         String REGEX_MAIN = "#F|#T|#M|#I|#G|#E|#X";
         String REGEX_MAIN = "#";
@@ -21,10 +21,10 @@ public class ReadoutParser {
 //            System.out.println(str);
 //        }
 //        System.out.println("---------------------------------");
-        parseData(result);
+        parseBySubfactor(result);
     }
 
-    private static void parseData(String[] result) {
+    private void parseBySubfactor(String[] result) {
 
         List<String[]> listResult = new ArrayList<>();
 
@@ -39,7 +39,7 @@ public class ReadoutParser {
         }
     }
 
-    private  void storeReadout(String[] s) {
+    private void storeReadout(String[] s) {
         switch (s[0]) {
             case "#T":
                 splitReadout.set_Ts(s[1]);
