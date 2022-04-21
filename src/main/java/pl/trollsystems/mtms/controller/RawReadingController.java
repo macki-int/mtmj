@@ -19,7 +19,7 @@ public class RawReadingController {
     }
 
     @PostMapping
-    public ResponseEntity<?> add(@RequestBody RawReading rawReading){
+    public ResponseEntity<?> add(@RequestBody String rawReading){
         System.out.println(rawReading.toString());
 
         return ResponseEntity.status(HttpStatus.CREATED).build();
