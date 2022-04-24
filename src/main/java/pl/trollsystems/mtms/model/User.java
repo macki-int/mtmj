@@ -23,6 +23,7 @@ public class User {
     @Value("${some.key:true}")
     private Boolean active;
     @NotNull
+    @Enumerated(EnumType.STRING)
     private RoleEnum roleEnum;
 
 
