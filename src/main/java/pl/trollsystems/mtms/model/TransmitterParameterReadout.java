@@ -6,13 +6,13 @@ import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name="transmitter_parameter_readings")
-public class TransmitterParameterReading {
+@Table(name="transmitter_parameter_readouts")
+public class TransmitterParameterReadout {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
-    private LocalDateTime dataTimeReading;
+    private LocalDateTime startMeasureDataTime;
     private String fileName;
     private String serialNumber;
     private String signalLevel;
@@ -28,12 +28,12 @@ public class TransmitterParameterReading {
         this.id = id;
     }
 
-    public LocalDateTime getDataTimeReading() {
-        return dataTimeReading;
+    public LocalDateTime getStartMeasureDataTime() {
+        return startMeasureDataTime;
     }
 
-    public void setDataTimeReading(LocalDateTime dataTimeReading) {
-        this.dataTimeReading = dataTimeReading;
+    public void setStartMeasureDataTime(LocalDateTime startMeasureDataTime) {
+        this.startMeasureDataTime = startMeasureDataTime;
     }
 
     public String getFileName() {
