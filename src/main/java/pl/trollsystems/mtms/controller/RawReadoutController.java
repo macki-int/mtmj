@@ -9,11 +9,11 @@ import pl.trollsystems.mtms.repository.RawReadoutRepository;
 
 @RestController
 @RequestMapping("/uploads")
-public class RawReadingController {
+public class RawReadoutController {
     private RawReadoutRepository rawReadoutRepository;
 
     @Autowired
-    public RawReadingController(RawReadoutRepository rawReadoutRepository) {
+    public RawReadoutController(RawReadoutRepository rawReadoutRepository) {
         this.rawReadoutRepository = rawReadoutRepository;
     }
 
