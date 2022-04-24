@@ -2,8 +2,8 @@ package pl.trollsystems.mtms.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import pl.trollsystems.mtms.model.RawReading;
+import pl.trollsystems.mtms.model.RawReadout;
 
 @Repository
-public interface RawReadingRepository extends JpaRepository<RawReading, Long> {
+public interface RawReadoutRepository extends JpaRepository<RawReadout, Long> {
 }
