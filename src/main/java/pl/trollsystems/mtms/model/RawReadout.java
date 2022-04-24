@@ -1,5 +1,6 @@
 package pl.trollsystems.mtms.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
@@ -12,6 +13,7 @@ public class RawReading {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss.SSS")
     private LocalDateTime localDateTime;
     @NotNull
     @Column(columnDefinition = "text")

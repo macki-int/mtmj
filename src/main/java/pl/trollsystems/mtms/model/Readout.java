@@ -6,13 +6,13 @@ import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "readings")
-public class Reading {
+@Table(name = "readouts")
+public class Readout {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
-    private LocalDateTime dataTimeReading;
+    private LocalDateTime readoutDataTime;
     private Double pD;
     private Double pBaro;
     private Double tBaro;
@@ -22,7 +22,7 @@ public class Reading {
     private String Description;
     @ManyToOne
     @JoinColumn(name = "transmitter_parameter_reading_id", nullable = false)
-    private TransmitterParameterReading transmitterParameterReading;
+    private TransmitterParameterReadout transmitterParameterReadout;
 
 
     public Long getId() {
@@ -33,12 +33,12 @@ public class Reading {
         this.id = id;
     }
 
-    public LocalDateTime getDataTimeReading() {
-        return dataTimeReading;
+    public LocalDateTime getReadoutDataTime() {
+        return readoutDataTime;
     }
 
-    public void setDataTimeReading(LocalDateTime dataTimeReading) {
-        this.dataTimeReading = dataTimeReading;
+    public void setReadoutDataTime(LocalDateTime readoutDataTime) {
+        this.readoutDataTime = readoutDataTime;
     }
 
     public Double getpD() {
@@ -89,11 +89,11 @@ public class Reading {
         Description = description;
     }
 
-    public TransmitterParameterReading getTransmitterParameterReading() {
-        return transmitterParameterReading;
+    public TransmitterParameterReadout getTransmitterParameterReading() {
+        return transmitterParameterReadout;
     }
 
-    public void setTransmitterParameterReading(TransmitterParameterReading transmitterParameterReading) {
-        this.transmitterParameterReading = transmitterParameterReading;
+    public void setTransmitterParameterReading(TransmitterParameterReadout transmitterParameterReadout) {
+        this.transmitterParameterReadout = transmitterParameterReadout;
     }
 }
