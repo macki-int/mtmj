@@ -7,14 +7,14 @@ import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "raw_readings")
-public class RawReading {
+@Table(name = "raw_readouts")
+public class RawReadout {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss.SSS")
-    private LocalDateTime localDateTime;
+    private LocalDateTime transmisionDateTime;
     @NotNull
     @Column(columnDefinition = "text")
     private String reading;
@@ -30,12 +30,12 @@ public class RawReading {
         this.id = id;
     }
 
-    public LocalDateTime getLocalDateTime() {
-        return localDateTime;
+    public LocalDateTime getTransmisionDateTime() {
+        return transmisionDateTime;
     }
 
-    public void setLocalDateTime(LocalDateTime localDateTime) {
-        this.localDateTime = localDateTime;
+    public void setTransmisionDateTime(LocalDateTime transmisionDateTime) {
+        this.transmisionDateTime = transmisionDateTime;
     }
 
     public String getReading() {
