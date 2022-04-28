@@ -13,7 +13,7 @@ public class RawReadout {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+//    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private LocalDateTime transmisionDateTime;
     @NotNull
     @Column(columnDefinition = "text")
