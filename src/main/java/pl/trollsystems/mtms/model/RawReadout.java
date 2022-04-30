@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;
 
+
 @Entity
 @Table(name = "raw_readouts")
 public class RawReadout {
