@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Value;
 
+import java.time.LocalDateTime;
+
 
 @Entity
 @Table(name = "raw_readouts")
@@ -12,7 +14,7 @@ public class RawReadout {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     //    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private String transmisionDateTime;
+    private LocalDateTime transmisionDateTime;
     @NotNull
     @Column(columnDefinition = "text")
     private String reading;
@@ -31,11 +33,11 @@ public class RawReadout {
         this.id = id;
     }
 
-    public String getTransmisionDateTime() {
+    public LocalDateTime getTransmisionDateTime() {
         return transmisionDateTime;
     }
 
-    public void setTransmisionDateTime(String transmisionDateTime) {
+    public void setTransmisionDateTime(LocalDateTime transmisionDateTime) {
         this.transmisionDateTime = transmisionDateTime;
     }
 
