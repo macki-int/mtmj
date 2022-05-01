@@ -3,6 +3,7 @@ package pl.trollsystems.mtms.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.time.LocalDateTime;
 
@@ -22,6 +23,9 @@ public class RawReadout {
     @NotNull
     private String fileName;
 
+    @NotNull
+    @Value("${some.key:false}")
+    private Boolean processed;
 
     public Long getId() {
         return id;
@@ -53,5 +57,13 @@ public class RawReadout {
 
     public void setFileName(String fileName) {
         this.fileName = fileName;
+    }
+
+    public Boolean getProcessed() {
+        return processed;
+    }
+
+    public void setProcessed(Boolean processed) {
+        this.processed = processed;
     }
 }
