@@ -1,9 +1,6 @@
 package pl.trollsystems.mtms.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
-
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name="transmitter_parameter_readouts")
@@ -11,8 +8,7 @@ public class TransmitterParameterReadout {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotNull
-    private LocalDateTime startMeasureDataTime;
+    private String startMeasureDataTime;
     private String fileName;
     private String serialNumber;
     private String signalLevel;
@@ -28,11 +24,11 @@ public class TransmitterParameterReadout {
         this.id = id;
     }
 
-    public LocalDateTime getStartMeasureDataTime() {
+    public String getStartMeasureDataTime() {
         return startMeasureDataTime;
     }
 
-    public void setStartMeasureDataTime(LocalDateTime startMeasureDataTime) {
+    public void setStartMeasureDataTime(String startMeasureDataTime) {
         this.startMeasureDataTime = startMeasureDataTime;
     }
 
