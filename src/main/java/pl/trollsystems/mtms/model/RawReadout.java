@@ -1,6 +1,5 @@
 package pl.trollsystems.mtms.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,7 +24,7 @@ public class RawReadout {
 
     @NotNull
     @Value("${some.key:false}")
-    private Boolean processed;
+    private Boolean rawImport;
 
     public Long getId() {
         return id;
@@ -59,11 +58,11 @@ public class RawReadout {
         this.fileName = fileName;
     }
 
-    public Boolean getProcessed() {
-        return processed;
+    public Boolean getRawImport() {
+        return rawImport;
     }
 
-    public void setProcessed(Boolean processed) {
-        this.processed = processed;
+    public void setRawImport(Boolean rawImport) {
+        this.rawImport = rawImport;
     }
 }
