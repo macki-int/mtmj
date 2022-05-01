@@ -16,9 +16,12 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 
 @RestController
-@RequestMapping("/uploads")
+@RequestMapping("/rawreadouts")
 public class RawReadoutController {
     private RawReadoutRepository rawReadoutRepository;
 
@@ -49,5 +52,15 @@ public class RawReadoutController {
         }
 
         return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @GetMapping("/non-imports")
+    public ResponseEntity<?> getAllWithoutImport(){
+        Optional<RawReadout> rawOptional = rawReadoutRepository.findAllWhereRawImportIsFalse();
+
+        if(rawOptional.isPresent()) {
+            return ResponseEntity.ok().body(rawOptional);
+        }
+        return ResponseEntity.noContent().build();
     }
 }
