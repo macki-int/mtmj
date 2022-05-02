@@ -2,6 +2,7 @@ package pl.trollsystems.mtms.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import pl.trollsystems.mtms.model.RawReadout;
 import pl.trollsystems.mtms.model.Readout;
 import pl.trollsystems.mtms.model.SplitReadoutWithoutTransmiterParameter;
@@ -12,16 +13,10 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
-//@Service
+@Service
 public class ReadoutParser {
-    private RawReadoutRepository rawReadoutRepository;
-    private
-    List<Readout> readouts = new ArrayList<>();
-
-    @Autowired
-    public ReadoutParser(RawReadoutRepository rawReadoutRepository) {
-        this.rawReadoutRepository = rawReadoutRepository;
-    }
+     
+    private List<Readout> readouts = new ArrayList<>();
 
     public List<Readout> parseByFactor(List<RawReadout> rawReadouts) {
 //        String REGEX_MAIN = "#";
@@ -62,7 +57,8 @@ public class ReadoutParser {
 
 
             transmitterParameterReadout.setFileName(rawReadout.getFileName());
-            transmitterParameterReadout.setId(1L);
+//            transmitterParameterReadout.setId(1L);
+
 
             //TODO save DB and get ID
             //co 30min (16 odczytów) -> 3x na dobę
