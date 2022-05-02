@@ -10,5 +10,5 @@ import java.util.Optional;
 
 @Repository
 public interface RawReadoutRepository extends JpaRepository<RawReadout, Long> {
-    Optional<RawReadout> findAllWhereRawImportIsFalse();
+    List<RawReadout> findByRawImportFalse();
 }
