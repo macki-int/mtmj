@@ -55,11 +55,7 @@ public class RawReadoutController {
 
     @GetMapping("/non-imports")
     public ResponseEntity<?> findAllWithoutImport(){
-        Optional<RawReadout> rawOptional = rawReadoutRepository.findAllWhereRawImportIsFalse();
 
-        if(rawOptional.isPresent()) {
-            return ResponseEntity.ok().body(rawOptional);
-        }
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok().body(rawReadoutRepository.findByRawImportFalse());
     }
 }
