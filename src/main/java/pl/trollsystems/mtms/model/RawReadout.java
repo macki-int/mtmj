@@ -20,7 +20,6 @@ public class RawReadout {
     private String reading;
     @NotNull
     private String fileName;
-
     @NotNull
     @Value("${some.key:false}")
     private Boolean rawImport;
