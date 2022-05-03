@@ -14,13 +14,11 @@ import pl.trollsystems.mtms.repository.RawReadoutRepository;
 import pl.trollsystems.mtms.service.ReadoutParser;
 
 import java.lang.reflect.Type;
-import java.sql.ResultSet;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 
 @RestController
@@ -67,7 +65,7 @@ public class RawReadoutController {
     @GetMapping("/do-imports")
     public ResponseEntity<?> makeImport() {
         List<RawReadout> rawReadouts = rawReadoutRepository.findByRawImportFalse();
-        if(rawReadouts.isEmpty()){
+        if (rawReadouts.isEmpty()) {
             return ResponseEntity.noContent().build();
         }
 
@@ -75,5 +73,10 @@ public class RawReadoutController {
         List<Readout> readouts = readoutParser.parseByFactor(rawReadouts);
 
         return ResponseEntity.ok().build();
+    }
+
+    @PutMapping("/mark-imports")
+    public ResponseEntity<?> markImport(@RequestBody RawReadout rawReadout) {
+        return ResponseEntity.ok().body(rawReadoutRepository.save(rawReadout));
     }
 }
