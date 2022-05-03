@@ -2,9 +2,8 @@ package pl.trollsystems.mtms.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import pl.trollsystems.mtms.model.Readout;
 import pl.trollsystems.mtms.repository.ReadoutRepository;
 
 @RestController
@@ -20,4 +19,10 @@ public class ReadoutController {
     public ResponseEntity<?> findAll(){
         return ResponseEntity.ok().body(readoutRepository.findAll());
     }
+
+    @PostMapping
+    public Readout add(@RequestBody Readout readout){
+        return readoutRepository.save(readout);
+    }
+
 }
