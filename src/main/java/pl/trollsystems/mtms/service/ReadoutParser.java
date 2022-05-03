@@ -62,7 +62,7 @@ public class ReadoutParser {
             RestTemplate restTemplate = new RestTemplate();
 
             TransmitterParameterReadout transmitterPR = restTemplate.
-                    postForObject("http://localhost:8080/transmiter-params",
+                    postForObject("http://localhost:8081/transmiter-params",
                             transmitterParameterReadout, TransmitterParameterReadout.class);
 
 
@@ -80,7 +80,7 @@ public class ReadoutParser {
                 readout.settOb1(splitReadoutWithoutTransmiterParameter.gettOb1());
                 readout.setTransmitterParameterReading(transmitterPR);
 
-                restTemplate.postForObject("http://localhost:8080/readouts",
+                restTemplate.postForObject("http://localhost:8081/readouts",
                         readout, Readout.class);
 
                 readouts.add(readout);
@@ -89,7 +89,7 @@ public class ReadoutParser {
             if (transmitterPR.getId() > 0) {
                 rawReadout.setRawImport(true);
 
-                restTemplate.put("http://localhost:8080/rawreadouts/mark-imports",
+                restTemplate.put("http://localhost:8081/rawreadouts/mark-imports",
                         rawReadout, RawReadout.class);
             }
         }
