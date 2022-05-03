@@ -7,6 +7,7 @@ import com.google.gson.reflect.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
 import pl.trollsystems.mtms.model.RawReadout;
 import pl.trollsystems.mtms.model.Readout;
@@ -61,7 +62,7 @@ public class RawReadoutController {
 
         return ResponseEntity.ok().body(rawReadoutRepository.findByRawImportFalse());
     }
-
+//    @Scheduled(fixedDelay = 600_000)
     @GetMapping("/do-imports")
     public ResponseEntity<?> makeImport() {
         List<RawReadout> rawReadouts = rawReadoutRepository.findByRawImportFalse();
