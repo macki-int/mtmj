@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.trollsystems.mtms.model.Readout;
 import pl.trollsystems.mtms.repository.ReadoutRepository;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/readouts")
 public class ReadoutController {
