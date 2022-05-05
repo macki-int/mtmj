@@ -2,14 +2,13 @@ package pl.trollsystems.mtms.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.trollsystems.mtms.model.User;
 import pl.trollsystems.mtms.repository.UserRepository;
 
 import java.util.Optional;
+
+@CrossOrigin(origins = "*")
 
 @RestController
 @RequestMapping("/users")
