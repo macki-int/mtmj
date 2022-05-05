@@ -5,7 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.trollsystems.mtms.model.TransmitterParameterReadout;
 import pl.trollsystems.mtms.repository.TransmitterParameterReadoutRepository;
-
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/transmiter-params")
 public class TransmitterParameterReadoutController {
