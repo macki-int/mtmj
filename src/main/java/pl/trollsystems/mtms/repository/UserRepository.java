@@ -6,4 +6,5 @@ import pl.trollsystems.mtms.model.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
+    User findByLoginName(String loginName);
 }
