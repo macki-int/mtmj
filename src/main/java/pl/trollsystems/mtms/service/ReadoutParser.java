@@ -1,13 +1,17 @@
 package pl.trollsystems.mtms.service;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
+import pl.trollsystems.mtms.controller.TransmitterParameterReadoutController;
 import pl.trollsystems.mtms.model.RawReadout;
 import pl.trollsystems.mtms.model.Readout;
 import pl.trollsystems.mtms.model.SplitReadoutWithoutTransmiterParameter;
 import pl.trollsystems.mtms.model.TransmitterParameterReadout;
+import pl.trollsystems.mtms.repository.RawReadoutRepository;
+import pl.trollsystems.mtms.repository.ReadoutRepository;
+import pl.trollsystems.mtms.repository.TransmitterParameterReadoutRepository;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -19,6 +23,11 @@ public class ReadoutParser {
     int PERIOD_OF_READOUT_MINUTES = 30;
     int QUANTITY_READOUTS_IN_PACKAGE = 16;
     private List<Readout> readouts = new ArrayList<>();
+    @Autowired
+    private ReadoutRepository readoutRepository;
+    @Autowired
+    private TransmitterParameterReadoutRepository transmitterParameterReadoutRepository;
+    @Autowired private RawReadoutRepository rawReadoutRepository;
 
     @Bean
     public List<Readout> parseByFactor(List<RawReadout> rawReadouts) {
@@ -59,13 +68,8 @@ public class ReadoutParser {
             }
             transmitterParameterReadout.setFileName(rawReadout.getFileName());
 
-            RestTemplate restTemplate = new RestTemplate();
-
-            TransmitterParameterReadout transmitterPR = restTemplate.
-                    postForObject("http://localhost:8081/transmiter-params",
-                            transmitterParameterReadout, TransmitterParameterReadout.class);
-
-
+            TransmitterParameterReadout transmitterPR = transmitterParameterReadoutRepository
+                    .save(transmitterParameterReadout);
 
             for (int i = 0; i < QUANTITY_READOUTS_IN_PACKAGE; i++) {
                 Readout readout = new Readout();
@@ -80,8 +84,7 @@ public class ReadoutParser {
                 readout.settOb1(splitReadoutWithoutTransmiterParameter.gettOb1());
                 readout.setTransmitterParameterReading(transmitterPR);
 
-                restTemplate.postForObject("http://localhost:8081/readouts",
-                        readout, Readout.class);
+                readoutRepository.save(readout);
 
                 readouts.add(readout);
             }
@@ -89,8 +92,7 @@ public class ReadoutParser {
             if (transmitterPR.getId() > 0) {
                 rawReadout.setRawImport(true);
 
-                restTemplate.put("http://localhost:8081/rawreadouts/mark-imports",
-                        rawReadout, RawReadout.class);
+                rawReadoutRepository.save(rawReadout);
             }
         }
         return readouts;
