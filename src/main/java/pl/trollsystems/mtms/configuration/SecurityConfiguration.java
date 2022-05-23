@@ -54,14 +54,22 @@ public class SecurityConfiguration {
     @Bean
     public UserDetailsService UserDetailsService() {
         UserDetails trollsystems = User.withUsername("trollsystems")
-                .password("{bcrypt}$2a$12$My.ItmnqK7zX4SYvngjp8OV1nYPib/uJaaikZp2vd.SFO/JAmPb9G")
+                .password("{bcrypt}")
                 .roles("ADMIN")
                 .build();
         UserDetails mtms_piezo = User.withUsername("mtms_piezo")
-                .password("{bcrypt}$2a$12$ziqpWFhW6GF7uTo2EAUL9u1UKVrbCKvY.Vd5rjwRYrMKHU02et9tm")
+                .password("{bcrypt}")
                 .roles("ADMIN")
                 .build();
-        return new InMemoryUserDetailsManager(trollsystems, mtms_piezo);
+        UserDetails naster = User.withUsername("naster")
+                .password("{bcrypt}")
+                .roles("ADMIN")
+                .build();
+        UserDetails saintgobain = User.withUsername("saintgobain")
+                .password("{bcrypt}")
+                .roles("ADMIN")
+                .build();
+        return new InMemoryUserDetailsManager(trollsystems, mtms_piezo, naster, saintgobain);
     }
 
 
