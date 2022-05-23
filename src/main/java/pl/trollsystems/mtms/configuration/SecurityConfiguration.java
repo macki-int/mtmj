@@ -41,6 +41,7 @@ public class SecurityConfiguration {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.addAllowedOrigin("http://localhost:8080");
+        configuration.addAllowedOrigin("http://mtms.cba.pl");
         configuration.addAllowedMethod("*");
         configuration.addAllowedHeader("*");
         configuration.setAllowCredentials(true);
@@ -52,11 +53,15 @@ public class SecurityConfiguration {
 
     @Bean
     public UserDetailsService UserDetailsService() {
-        UserDetails userDetails = User.withUsername("marek")
-                .password("{bcrypt}")
+        UserDetails trollsystems = User.withUsername("trollsystems")
+                .password("{bcrypt}$2a$12$My.ItmnqK7zX4SYvngjp8OV1nYPib/uJaaikZp2vd.SFO/JAmPb9G")
                 .roles("ADMIN")
                 .build();
-        return new InMemoryUserDetailsManager(userDetails);
+        UserDetails mtms_piezo = User.withUsername("mtms_piezo")
+                .password("{bcrypt}$2a$12$ziqpWFhW6GF7uTo2EAUL9u1UKVrbCKvY.Vd5rjwRYrMKHU02et9tm")
+                .roles("ADMIN")
+                .build();
+        return new InMemoryUserDetailsManager(trollsystems, mtms_piezo);
     }
 
 
