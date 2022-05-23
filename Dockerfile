@@ -1,4 +1,4 @@
-FROM openjdk:17-alpine
+FROM openjdk:17-jdk-alpine3.14
 
 #ARG JAR_FILER=target/*.jar
 #COPY ${JAR_FILE} mtms.jar
