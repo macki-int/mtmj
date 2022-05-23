@@ -69,7 +69,11 @@ public class SecurityConfiguration {
                 .password("{bcrypt}")
                 .roles("ADMIN")
                 .build();
-        return new InMemoryUserDetailsManager(trollsystems, mtms_piezo, naster, saintgobain);
+        UserDetails mtms_ftp = User.withUsername("mtms_ftp")
+                .password("{bcrypt}")
+                .roles("USER")
+                .build();
+        return new InMemoryUserDetailsManager(trollsystems, mtms_piezo, naster, saintgobain, mtms_ftp);
     }
 
 
