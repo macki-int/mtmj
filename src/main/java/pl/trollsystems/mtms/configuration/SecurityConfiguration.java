@@ -27,11 +27,13 @@ public class SecurityConfiguration {
                 .authorizeRequests((authorizeRequests) -> authorizeRequests
 //                                .anyRequest().hasAuthority("ADMIN_ROLE")
 //                                .anyRequest().hasRole("USER")
+//                                .antMatchers("/rawreadouts/**").permitAll()
                                 .anyRequest().authenticated()
                 )
 
                 .cors(Customizer.withDefaults())
-                .csrf((csrf) -> csrf.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()))
+//                .csrf((csrf) -> csrf.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()))
+                .csrf().disable()
                 .httpBasic(Customizer.withDefaults());
 
         return http.build();
