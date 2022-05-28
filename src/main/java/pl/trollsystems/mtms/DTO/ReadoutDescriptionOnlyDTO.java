@@ -1,6 +1,6 @@
 package pl.trollsystems.mtms.DTO;
 
-public class ReadoutDescriptionOnly {
+public class ReadoutDescriptionOnlyDTO {
     private String description;
 
     public String getDescription() {
