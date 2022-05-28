@@ -4,7 +4,6 @@ package pl.trollsystems.mtms.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
-import pl.trollsystems.mtms.controller.TransmitterParameterReadoutController;
 import pl.trollsystems.mtms.model.RawReadout;
 import pl.trollsystems.mtms.model.Readout;
 import pl.trollsystems.mtms.model.SplitReadoutWithoutTransmiterParameter;
