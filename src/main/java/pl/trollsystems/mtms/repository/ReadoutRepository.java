@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface ReadoutRepository extends JpaRepository<Readout, Long> {
-    List<Readout> findAllByOrderByReadoutDataTimeAsc();
+    List<Readout> findAllByOrderByReadoutDataTimeDesc();
 }
