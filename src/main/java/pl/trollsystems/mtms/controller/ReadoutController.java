@@ -18,7 +18,7 @@ public class ReadoutController {
     }
     @GetMapping
     public ResponseEntity<?> findAllByOrderByReadoutDataTimeAsc(){
-        return ResponseEntity.ok().body(readoutRepository.findAllByOrderByReadoutDataTimeAsc());
+        return ResponseEntity.ok().body(readoutRepository.findAllByOrderByReadoutDataTimeDesc());
     }
 
     @PostMapping
