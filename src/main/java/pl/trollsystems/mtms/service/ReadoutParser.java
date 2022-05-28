@@ -26,7 +26,8 @@ public class ReadoutParser {
     private ReadoutRepository readoutRepository;
     @Autowired
     private TransmitterParameterReadoutRepository transmitterParameterReadoutRepository;
-    @Autowired private RawReadoutRepository rawReadoutRepository;
+    @Autowired
+    private RawReadoutRepository rawReadoutRepository;
 
     @Bean
     public List<Readout> parseByFactor(List<RawReadout> rawReadouts) {
