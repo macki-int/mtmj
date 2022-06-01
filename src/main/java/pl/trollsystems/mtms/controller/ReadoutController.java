@@ -6,6 +6,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.trollsystems.mtms.DTO.ReadoutDescriptionOnlyDTO;
+import pl.trollsystems.mtms.DTO.StatisticDTO;
 import pl.trollsystems.mtms.model.Readout;
 import pl.trollsystems.mtms.repository.ReadoutRepository;
 
@@ -31,7 +32,22 @@ public class ReadoutController {
         return ResponseEntity.ok().body(readoutRepository.findAllByOrderByReadoutDataTime(Sort.by(direction, nameFieldSort)));
     }
 
+    @GetMapping("/statistics")
+    public ResponseEntity<?> getStatistics(){
+        StatisticDTO statisticDTO = new StatisticDTO();
+//
+//        statisticDTO.setMaxTemperature(readoutRepository.getMaxTemperature());
+//        statisticDTO.setMinTemperature(readoutRepository.getMinTemperature());
+//        statisticDTO.setAvgTemperature(readoutRepository.getAVGTemperature());
+//        statisticDTO.setMaxWaterLevel(readoutRepository.getMaxWaterLevel());
+//        statisticDTO.setMinWaterLevel(readoutRepository.getMinWaterLevel());
+//        statisticDTO.setAvgTemperature(readoutRepository.getAvgWaterLevel());
+//        statisticDTO.setTotalNumberReadout(readoutRepository.getCountReadout());
+//
+        return ResponseEntity.ok().body(statisticDTO);
+    }
     @PostMapping
+
     public Readout add(@RequestBody Readout readout) {
         return readoutRepository.save(readout);
     }
