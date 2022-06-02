@@ -33,21 +33,21 @@ public class ReadoutController {
     }
 
     @GetMapping("/statistics")
-    public ResponseEntity<?> getStatistics(){
+    public ResponseEntity<?> getStatistic() {
         StatisticDTO statisticDTO = new StatisticDTO();
-//
-//        statisticDTO.setMaxTemperature(readoutRepository.getMaxTemperature());
-//        statisticDTO.setMinTemperature(readoutRepository.getMinTemperature());
-//        statisticDTO.setAvgTemperature(readoutRepository.getAVGTemperature());
-//        statisticDTO.setMaxWaterLevel(readoutRepository.getMaxWaterLevel());
-//        statisticDTO.setMinWaterLevel(readoutRepository.getMinWaterLevel());
-//        statisticDTO.setAvgTemperature(readoutRepository.getAvgWaterLevel());
-//        statisticDTO.setTotalNumberReadout(readoutRepository.getCountReadout());
-//
-        return ResponseEntity.ok().body(statisticDTO);
-    }
-    @PostMapping
 
+        statisticDTO.setMaxTemperature(readoutRepository.maxTemperature());
+        statisticDTO.setMinTemperature(readoutRepository.minTemperature());
+        statisticDTO.setAvgTemperature(readoutRepository.avgTemperature());
+        statisticDTO.setMaxWaterLevel(readoutRepository.maxWaterLevel());
+        statisticDTO.setMinWaterLevel(readoutRepository.minWaterLevel());
+        statisticDTO.setAvgWaterLevel(readoutRepository.avgWaterLevel());
+        statisticDTO.setTotalNumberReadout(readoutRepository.count());
+
+        return ResponseEntity.ok(statisticDTO);
+    }
+
+    @PostMapping
     public Readout add(@RequestBody Readout readout) {
         return readoutRepository.save(readout);
     }
