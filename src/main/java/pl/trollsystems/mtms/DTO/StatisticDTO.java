@@ -1,5 +1,8 @@
 package pl.trollsystems.mtms.DTO;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class StatisticDTO {
     private Double maxTemperature;
     private Double minTemperature;
@@ -7,7 +10,7 @@ public class StatisticDTO {
     private Double maxWaterLevel;
     private Double minWaterLevel;
     private Double avgWaterLevel;
-    private Integer totalNumberReadout;
+    private long totalNumberReadout;
 
     public Double getMaxTemperature() {
         return maxTemperature;
@@ -57,11 +60,11 @@ public class StatisticDTO {
         this.avgWaterLevel = avgWaterLevel;
     }
 
-    public Integer getTotalNumberReadout() {
+    public long getTotalNumberReadout() {
         return totalNumberReadout;
     }
 
-    public void setTotalNumberReadout(Integer totalNumberReadout) {
+    public void setTotalNumberReadout(long totalNumberReadout) {
         this.totalNumberReadout = totalNumberReadout;
     }
 }
