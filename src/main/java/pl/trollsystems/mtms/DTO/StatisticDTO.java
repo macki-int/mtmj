@@ -4,27 +4,27 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class StatisticDTO {
-    private Double maxTemperature;
-    private Double minTemperature;
+    private MaxTemperatureDTO maxTemperature;
+    private MinTemperatureDTO minTemperature;
     private Double avgTemperature;
-    private Double maxWaterLevel;
-    private Double minWaterLevel;
+    private MaxWaterLevelDTO maxWaterLevel;
+    private MinWaterLevelDTO minWaterLevel;
     private Double avgWaterLevel;
     private long totalNumberReadout;
 
-    public Double getMaxTemperature() {
+    public MaxTemperatureDTO getMaxTemperature() {
         return maxTemperature;
     }
 
-    public void setMaxTemperature(Double maxTemperature) {
+    public void setMaxTemperature(MaxTemperatureDTO maxTemperature) {
         this.maxTemperature = maxTemperature;
     }
 
-    public Double getMinTemperature() {
+    public MinTemperatureDTO getMinTemperature() {
         return minTemperature;
     }
 
-    public void setMinTemperature(Double minTemperature) {
+    public void setMinTemperature(MinTemperatureDTO minTemperature) {
         this.minTemperature = minTemperature;
     }
 
@@ -36,19 +36,19 @@ public class StatisticDTO {
         this.avgTemperature = avgTemperature;
     }
 
-    public Double getMaxWaterLevel() {
+    public MaxWaterLevelDTO getMaxWaterLevel() {
         return maxWaterLevel;
     }
 
-    public void setMaxWaterLevel(Double maxWaterLevel) {
+    public void setMaxWaterLevel(MaxWaterLevelDTO maxWaterLevel) {
         this.maxWaterLevel = maxWaterLevel;
     }
 
-    public Double getMinWaterLevel() {
+    public MinWaterLevelDTO getMinWaterLevel() {
         return minWaterLevel;
     }
 
-    public void setMinWaterLevel(Double minWaterLevel) {
+    public void setMinWaterLevel(MinWaterLevelDTO minWaterLevel) {
         this.minWaterLevel = minWaterLevel;
     }
 
