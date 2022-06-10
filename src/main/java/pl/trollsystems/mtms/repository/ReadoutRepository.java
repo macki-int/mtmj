@@ -12,19 +12,19 @@ import java.util.List;
 public interface ReadoutRepository extends JpaRepository<Readout, Long> {
     List<Readout> findAllByOrderByReadoutDataTime(Sort sort);
 
-    @Query(value = "SELECT max(t_ob1) FROM readouts", nativeQuery = true)
+    @Query(value = "SELECT max(t_ob1), readout_data_time FROM readouts", nativeQuery = true)
     Double maxTemperature();
 
-    @Query(value = "SELECT min(t_ob1) FROM readouts", nativeQuery = true)
+    @Query(value = "SELECT min(t_ob1), readout_data_time FROM readouts", nativeQuery = true)
     Double minTemperature();
 
     @Query(value = "SELECT avg(t_ob1) FROM readouts", nativeQuery = true)
     Double avgTemperature();
 
-    @Query(value = "SELECT max(pd) FROM readouts", nativeQuery = true)
+    @Query(value = "SELECT max(pd), readout_data_time FROM readouts", nativeQuery = true)
     Double maxWaterLevel();
 
-    @Query(value = "SELECT min(pd) FROM readouts", nativeQuery = true)
+    @Query(value = "SELECT min(pd), readout_data_time FROM readouts", nativeQuery = true)
     Double minWaterLevel();
 
     @Query(value = "SELECT avg(pd) FROM readouts", nativeQuery = true)
