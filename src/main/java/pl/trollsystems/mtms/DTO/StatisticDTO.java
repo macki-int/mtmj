@@ -2,7 +2,7 @@ package pl.trollsystems.mtms.DTO;
 
 import org.springframework.stereotype.Component;
 
-@Component
+
 public class StatisticDTO {
     private MaxTemperatureDTO maxTemperature;
     private MinTemperatureDTO minTemperature;
