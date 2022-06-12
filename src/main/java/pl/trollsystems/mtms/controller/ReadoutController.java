@@ -5,8 +5,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.trollsystems.mtms.DTO.ReadoutDescriptionOnlyDTO;
-import pl.trollsystems.mtms.DTO.StatisticDTO;
+import pl.trollsystems.mtms.DTO.*;
 import pl.trollsystems.mtms.model.Readout;
 import pl.trollsystems.mtms.repository.ReadoutRepository;
 
@@ -36,11 +35,19 @@ public class ReadoutController {
     public ResponseEntity<?> getStatistic() {
         StatisticDTO statisticDTO = new StatisticDTO();
 
-        statisticDTO.setMaxTemperature(readoutRepository.maxTemperature());
-        statisticDTO.setMinTemperature(readoutRepository.minTemperature());
+        statisticDTO.setMaxTemperature(new MaxTemperatureDTO(
+                readoutRepository.maxTemperature().gettOb1(),
+                readoutRepository.maxTemperature().getReadoutDataTime()));
+        statisticDTO.setMinTemperature(new MinTemperatureDTO(
+                readoutRepository.minTemperature().gettOb1(),
+                readoutRepository.minTemperature().getReadoutDataTime()));
         statisticDTO.setAvgTemperature(readoutRepository.avgTemperature());
-        statisticDTO.setMaxWaterLevel(readoutRepository.maxWaterLevel());
-        statisticDTO.setMinWaterLevel(readoutRepository.minWaterLevel());
+        statisticDTO.setMaxWaterLevel(new MaxWaterLevelDTO(
+                readoutRepository.maxWaterLevel().getpD(),
+                readoutRepository.maxWaterLevel().getReadoutDataTime()));
+        statisticDTO.setMinWaterLevel(new MinWaterLevelDTO(
+                readoutRepository.minWaterLevel().getpD(),
+                readoutRepository.maxWaterLevel().getReadoutDataTime()));
         statisticDTO.setAvgWaterLevel(readoutRepository.avgWaterLevel());
         statisticDTO.setTotalNumberReadout(readoutRepository.count());
 
