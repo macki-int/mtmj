@@ -4,10 +4,14 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
-@Component
 public class MaxTemperatureDTO {
     private Double maxTemperature;
     private LocalDateTime readoutDataTime;
+
+    public MaxTemperatureDTO(Double maxTemperature, LocalDateTime readoutDataTime) {
+        this.maxTemperature = maxTemperature;
+        this.readoutDataTime = readoutDataTime;
+    }
 
     public Double getMaxTemperature() {
         return maxTemperature;
