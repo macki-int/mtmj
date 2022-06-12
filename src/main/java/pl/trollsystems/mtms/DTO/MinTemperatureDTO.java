@@ -4,10 +4,14 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
-@Component
 public class MinTemperatureDTO {
     private Double minTemperature;
     private LocalDateTime readoutDataTime;
+
+    public MinTemperatureDTO(Double minTemperature, LocalDateTime readoutDataTime) {
+        this.minTemperature = minTemperature;
+        this.readoutDataTime = readoutDataTime;
+    }
 
     public Double getMinTemperature() {
         return minTemperature;
