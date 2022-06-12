@@ -4,10 +4,14 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
-@Component
 public class MinWaterLevelDTO {
     private Double minWaterLevel;
     private LocalDateTime readoutDataTime;
+
+    public MinWaterLevelDTO(Double minWaterLevel, LocalDateTime readoutDataTime) {
+        this.minWaterLevel = minWaterLevel;
+        this.readoutDataTime = readoutDataTime;
+    }
 
     public Double getMinWaterLevel() {
         return minWaterLevel;
