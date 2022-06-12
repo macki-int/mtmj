@@ -16,24 +16,24 @@ import java.util.List;
 public interface ReadoutRepository extends JpaRepository<Readout, Long> {
     List<Readout> findAllByOrderByReadoutDataTime(Sort sort);
 
-    @Query(value = "SELECT t_ob1, readout_data_time FROM readouts " +
+    @Query(value = "SELECT * FROM readouts " +
             "WHERE t_ob1 = (SELECT MAX(t_ob1) FROM readouts)", nativeQuery = true)
-    MaxTemperatureDTO maxTemperature();
+    Readout maxTemperature();
 
-    @Query(value = "SELECT t_ob1, readout_data_time FROM readouts " +
+    @Query(value = "SELECT * FROM readouts " +
             "WHERE t_ob1 = (SELECT MIN(t_ob1) FROM readouts)", nativeQuery = true)
-    MinTemperatureDTO minTemperature();
+    Readout minTemperature();
 
     @Query(value = "SELECT avg(t_ob1) FROM readouts", nativeQuery = true)
     Double avgTemperature();
 
-    @Query(value = "SELECT readout_data_time, pd FROM readouts " +
+    @Query(value = "SELECT * FROM readouts " +
             "WHERE pd = (SELECT MAX(pd) FROM readouts)", nativeQuery = true)
-    MaxWaterLevelDTO maxWaterLevel();
+    Readout maxWaterLevel();
 
-    @Query(value = "SELECT readout_data_time, pd FROM readouts " +
+    @Query(value = "SELECT * FROM readouts " +
             "WHERE pd = (SELECT MIN(pd) FROM readouts)", nativeQuery = true)
-    MinWaterLevelDTO minWaterLevel();
+    Readout minWaterLevel();
 
     @Query(value = "SELECT avg(pd) FROM readouts", nativeQuery = true)
     Double avgWaterLevel();
