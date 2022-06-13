@@ -47,7 +47,7 @@ public class ReadoutController {
                 readoutRepository.maxWaterLevel().getReadoutDataTime()));
         statisticDTO.setMinWaterLevel(new MinWaterLevelDTO(
                 readoutRepository.minWaterLevel().getpD(),
-                readoutRepository.maxWaterLevel().getReadoutDataTime()));
+                readoutRepository.minWaterLevel().getReadoutDataTime()));
         statisticDTO.setAvgWaterLevel(readoutRepository.avgWaterLevel());
         statisticDTO.setTotalNumberReadout(readoutRepository.count());
 
