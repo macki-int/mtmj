@@ -13,8 +13,7 @@ import java.util.List;
 public interface ReadoutRepository extends JpaRepository<Readout, Long> {
     List<Readout> findAllByOrderByReadoutDataTime(Sort sort);
 
-    @Query("SELECT r FROM Readout r WHERE r.readout_data_time BETWEEN (:dateTo) AND (:dateFrom)")
-//    @Query("SELECT r FROM Readout r")
+    @Query("SELECT r FROM Readout r WHERE r.readoutDataTime BETWEEN (:dateFrom) AND (:dateTo)")
     List<Readout> findAllWithDateFromAndDateToOrderByReadoutDataTime(LocalDate dateFrom, LocalDate dateTo, Sort sort);
 
     @Query(value = "SELECT * FROM readouts " +
