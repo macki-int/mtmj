@@ -10,7 +10,7 @@ import pl.trollsystems.mtms.DTO.*;
 import pl.trollsystems.mtms.model.Readout;
 import pl.trollsystems.mtms.repository.ReadoutRepository;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 @CrossOrigin(origins = "*")
@@ -33,10 +33,10 @@ public class ReadoutController {
         return ResponseEntity.ok().body(readoutRepository.findAllByOrderByReadoutDataTime(Sort.by(direction, nameFieldSort)));
     }
 
-    @GetMapping("/from")
+    @GetMapping("/fromto")
     public ResponseEntity<?> findAllWithDateFromAndDateToOrderByReadoutDataTime(
-            @RequestParam(value = "dateFrom") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dateFrom,
-            @RequestParam(value = "dateTo") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dateTo,
+            @RequestParam(value = "dateFrom") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dateFrom,
+            @RequestParam(value = "dateTo") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dateTo,
             @RequestParam(value = "sort") String sort) {
 
         String[] _sort = sort.split(",");
