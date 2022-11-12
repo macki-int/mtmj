@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import pl.trollsystems.mtms.model.Readout;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository
@@ -14,7 +14,7 @@ public interface ReadoutRepository extends JpaRepository<Readout, Long> {
     List<Readout> findAllByOrderByReadoutDataTime(Sort sort);
 
     @Query("SELECT r FROM Readout r WHERE r.readoutDataTime BETWEEN (:dateFrom) AND (:dateTo)")
-    List<Readout> findAllWithDateFromAndDateToOrderByReadoutDataTime(LocalDate dateFrom, LocalDate dateTo, Sort sort);
+    List<Readout> findAllWithDateFromAndDateToOrderByReadoutDataTime(LocalDateTime dateFrom, LocalDateTime dateTo, Sort sort);
 
     @Query(value = "SELECT * FROM readouts " +
             "WHERE t_ob1 = (SELECT MAX(t_ob1) FROM readouts)", nativeQuery = true)
