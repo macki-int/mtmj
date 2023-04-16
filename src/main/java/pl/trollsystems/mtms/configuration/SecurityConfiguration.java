@@ -42,8 +42,9 @@ public class SecurityConfiguration {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.addAllowedOrigin("http://localhost:8080");
-        configuration.addAllowedOrigin("http://mtms.cba.pl");
+//        configuration.addAllowedOrigin("http://localhost:8080");
+        configuration.addAllowedOrigin("http://mtms.troll-systems.pl");
+//        configuration.addAllowedOrigin("http://mtms.cba.pl");
         configuration.addAllowedMethod("*");
         configuration.addAllowedHeader("*");
         configuration.setAllowCredentials(true);
@@ -55,26 +56,7 @@ public class SecurityConfiguration {
 
     @Bean
     public UserDetailsService UserDetailsService() {
-        UserDetails trollsystems = User.withUsername("trollsystems")
-                .password("{bcrypt}")
-                .roles("ADMIN")
-                .build();
-        UserDetails mtms_piezo = User.withUsername("mtms_piezo")
-                .password("{bcrypt}")
-                .roles("ADMIN")
-                .build();
-        UserDetails naster = User.withUsername("naster")
-                .password("{bcrypt}")
-                .roles("ADMIN")
-                .build();
-        UserDetails saintgobain = User.withUsername("saintgobain")
-                .password("{bcrypt}")
-                .roles("ADMIN")
-                .build();
-        UserDetails mtms_ftp = User.withUsername("mtms_ftp")
-                .password("{bcrypt}")
-                .roles("USER")
-                .build();
+
         return new InMemoryUserDetailsManager(trollsystems, mtms_piezo, naster, saintgobain, mtms_ftp);
     }
 
